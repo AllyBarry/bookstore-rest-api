@@ -1,4 +1,4 @@
-from sqlalchemy import Boolean, Column, ForeignKey, Integer, String
+from sqlalchemy import Boolean, Column, ForeignKey, Integer, String, Float
 from sqlalchemy.orm import relationship
 
 from persistence.database import Base
@@ -23,5 +23,7 @@ class Book(Base):
     title = Column(String, index=True)
     description = Column(String, index=True)
     author_id = Column(Integer, ForeignKey("users.id"))
+    price = Column(Float)
+    cover_art = Column(String) # To be adapted/validated for URL later
 
     author = relationship("User", back_populates="books")

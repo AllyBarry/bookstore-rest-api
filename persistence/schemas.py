@@ -6,6 +6,8 @@ from pydantic import BaseModel
 class BookBase(BaseModel):
     title: str
     description: Union[str, None] = None
+    price: float
+    cover_art: str
 
 
 class BookCreate(BookBase):
@@ -36,3 +38,8 @@ class User(UserBase):
 
     class Config:
         orm_mode = True
+
+
+class Token(BaseModel):
+    access_token: str
+    token_type: str

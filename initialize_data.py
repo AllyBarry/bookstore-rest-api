@@ -1,7 +1,10 @@
 import csv
 import os
 import logging
+
 from faker import Faker
+from dotenv import load_dotenv, find_dotenv
+load_dotenv(find_dotenv())
 
 fake = Faker()
 
@@ -34,7 +37,9 @@ def load_sample_data(db: SessionLocal):
             for _ in range(3):
                 new_book = schemas.BookCreate(
                     title=fake.sentence(4),
-                    description= fake.sentence(10)
+                    description= fake.sentence(10),
+                    price=100.50,
+                    cover_art=fake.image_url()
                 )
                 crud.create_user_book(db, new_book, user.id)
 

@@ -8,6 +8,8 @@ sqlalchemy = "*"
 typing = "*"
 psycopg2 = "*"
 faker = "*"
+python-jose = "*"
+passlib = "*"
 
 [dev-packages]
 
