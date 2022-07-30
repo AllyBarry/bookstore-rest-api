@@ -1,4 +1,4 @@
-from typing import List, Union
+from typing import Optional, List, Union
 
 from pydantic import BaseModel
 
@@ -43,3 +43,6 @@ class User(UserBase):
 class Token(BaseModel):
     access_token: str
     token_type: str
+
+class TokenPayload(BaseModel):
+    sub: Optional[int] = None
