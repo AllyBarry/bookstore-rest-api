@@ -1,11 +1,13 @@
-FROM tiangolo/uvicorn-gunicorn-fastapi:python3.7
+FROM python:3.9
 
-WORKDIR /usr/src/app
+WORKDIR /code
 
-COPY ./app/Pipfile ./app/Pipfile.lock ./
+COPY ./requirements.txt /code/requirements.txt
 
-RUN pip install pipenv
+RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
 
-RUN pipenv install --system --deploy 
+COPY ./app /code/app
 
-COPY ./app/* ./
+RUN python ./app/initialize_data.py
+
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]

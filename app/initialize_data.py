@@ -44,7 +44,8 @@ def load_sample_data(db: SessionLocal):
                 crud.create_user_book(db, new_book, user.id)
 
 def init_db(db: SessionLocal):
-
+    print(os.getenv('SQLALCHEMY_DATABASE_URL'))
+    # Should apply migrations rather
     models.Base.metadata.create_all(bind=engine)
 
     load_sample_data(db)
