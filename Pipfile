@@ -8,8 +8,17 @@ sqlalchemy = "*"
 typing = "*"
 psycopg2 = "*"
 faker = "*"
-python-jose = "*"
+python-multipart = "*"
+
+[packages.python-jose]
+extras = ["cryptography"]
+version = "*"
 passlib = "*"
+python-multipart = "*"
+
+[packages.passlib]
+extras = ["bcrypt"]
+version = "*"
 
 [dev-packages]
 

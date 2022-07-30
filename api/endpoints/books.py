@@ -44,18 +44,15 @@ def create_book(book_in: schemas.BookCreate, db: Session = Depends(get_db), curr
     return book
 
 
-# @router.delete("/{id}", response_model=schemas.Book)
-# def delete_book(id: int, db: Session = Depends(get_db), current_user: models.User = Depends(get_current_user)):
-#     """
-#     Delete a book.
-#     """
-#     book: models.Book = crud.get_book(db=db, book_id=id)
-#     if not book:
-#         raise HTTPException(status_code=404, detail="Book not found")
-#     print(book)
-#     # current_user: models.User = await get_current_user(db)
-#     print(current_user)
-#     if not book.author_id != current_user.id:
-#         raise HTTPException(status_code=400, detail="Not enough permissions")
-#     book = crud.delete_book(db=db, book_id=id)
-#     return book
+@router.delete("/{id}", response_model=schemas.Book)
+def delete_book(id: int, db: Session = Depends(get_db), current_user: models.User = Depends(get_current_user)):
+    """
+    Delete a book.
+    """
+    book: models.Book = crud.get_book(db=db, book_id=id)
+    if not book:
+        raise HTTPException(status_code=404, detail="Book not found")
+    if book.author_id != current_user.id:
+        raise HTTPException(status_code=400, detail="Not permitted to delete this book.")
+    book = crud.delete_book(db=db, book_id=id)
+    return book

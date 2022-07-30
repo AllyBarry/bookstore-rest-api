@@ -17,9 +17,6 @@ def get_db():
 
 async def get_current_user(db: Session = Depends(get_db), token: str = Depends(reusable_oauth2)
 ) -> models.User:
-    print(token)
-    print(SECRET_KEY)
-    print(ALGORITHM)
     try:
         payload = jwt.decode(
             token, SECRET_KEY, algorithms=[ALGORITHM]
