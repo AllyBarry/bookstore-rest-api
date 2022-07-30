@@ -21,6 +21,10 @@ python-multipart = "*"
 extras = ["bcrypt"]
 version = "*"
 
+[packages.uvicorn]
+extras = ["standard"]
+version = "*"
+
 [dev-packages]
 pytest = "*"
 
@@ -28,5 +32,5 @@ pytest = "*"
 python_version = "3.8"
 
 [packages.fastapi]
-extras = [ "all",]
+extras = ["all"]
 version = "*"

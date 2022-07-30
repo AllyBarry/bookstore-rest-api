@@ -8,6 +8,7 @@
     
 From the root of the repository, run:
 ```
+export PIPENV_VENV_IN_PROJECT=1
 pipenv shell
 pipenv install
 ```

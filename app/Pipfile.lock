@@ -1,7 +1,7 @@
 {
     "_meta": {
         "hash": {
-            "sha256": "958c95cf7a2ff0f8a84442e840a350c357a967efd189ccc8559c006ae72bbec1"
+            "sha256": "a621a888b93a9fb7172ddc61ab1f9d11519936ce5b70da1318361125c0d6f012"
         },
         "pipfile-spec": 6,
         "requires": {
@@ -34,6 +34,12 @@
             ],
             "passlib": "*",
             "python-multipart": "*",
+            "version": "*"
+        },
+        "uvicorn": {
+            "extras": [
+                "standard"
+            ],
             "version": "*"
         }
     },
