@@ -9,6 +9,7 @@ typing = "*"
 psycopg2 = "*"
 faker = "*"
 python-multipart = "*"
+pytest = "*"
 
 [packages.python-jose]
 extras = ["cryptography"]
@@ -21,6 +22,7 @@ extras = ["bcrypt"]
 version = "*"
 
 [dev-packages]
+pytest = "*"
 
 [requires]
 python_version = "3.8"

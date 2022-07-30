@@ -1,0 +1,9 @@
+PROJECT_NAME="Bookstore Demo API"
+
+# Database Settings
+# Sqlalchemy connection string, i.e. for postgres:
+# SQLALCHEMY_DATABASE_URL='postgresql://<user>:<password>@<host>:<port>/<db>'
+SQLALCHEMY_DATABASE_URL=''
+
+# Authentication token settings
+ACCESS_TOKEN_EXPIRE_MINUTES=30
